@@ -1,0 +1,458 @@
+Aucune variable fixée
+Display statement at line 39
+s[1].val = 0
+s[2].val = 0
+s[3].val = 0
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 5
+x[3].val = 6
+x[4].val = 3
+x[5].val = 8
+Display statement at line 41
+y[1].val = 0.03
+y[2].val = 0.05
+y[3].val = 0.06
+y[4].val = 0.03
+y[5].val = 0.08
+Display statement at line 42
+167.34
+
+
+y[1]=1
+Display statement at line 39
+s[1].val = 0
+s[2].val = 0
+s[3].val = 0
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 5
+x[3].val = 6
+x[4].val = 3
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0.05
+y[3].val = 0.06
+y[4].val = 0.03
+y[5].val = 0.08
+Display statement at line 42
+177.04
+
+
+y[1]=1 y[5]=1
+Display statement at line 39
+s[1].val = 0
+s[2].val = 0
+s[3].val = 0
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 5
+x[3].val = 6
+x[4].val = 3
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0.05
+y[3].val = 0.06
+y[4].val = 0.03
+y[5].val = 1
+Display statement at line 42
+178.88
+
+
+y[1]1 y[5]=1 y[4]=0
+Display statement at line 39
+s[1].val = 0
+s[2].val = 0
+s[3].val = 3
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 5
+x[3].val = 9
+x[4].val = 0
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0.05
+y[3].val = 0.09
+y[4].val = 0
+y[5].val = 1
+Display statement at line 42
+181.94
+
+y[1]1 y[5]=1 y[4]=0 y[2]=0
+s[1].val = 5
+s[2].val = 0
+s[3].val = 3
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 8
+x[2].val = 0
+x[3].val = 9
+x[4].val = 0
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 0.09
+y[4].val = 0
+y[5].val = 1
+Display statement at line 42
+186.54
+
+y[1]1 y[5]=1 y[4]=0 y[2]=0 y[3]=1
+Display statement at line 39
+s[1].val = 5
+s[2].val = 0
+s[3].val = 3
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 8
+x[2].val = 0
+x[3].val = 9
+x[4].val = 0
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 1
+y[4].val = 0
+y[5].val = 1
+Display statement at line 42
+192 <- admissible !
+
+y[1]1 y[5]=1 y[4]=0 y[2]=0 y[3]=0
+isplay statement at line 39
+s[1].val = 14
+s[2].val = 9
+s[3].val = 3
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 17
+x[2].val = 0
+x[3].val = 0
+x[4].val = 0
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 0
+y[4].val = 0
+y[5].val = 1
+Display statement at line 42
+195
+
+
+y[1]1 y[5]=1 y[4]=0 y[2]=1
+Display statement at line 39
+s[1].val = 0
+s[2].val = 9
+s[3].val = 3
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 14
+x[3].val = 0
+x[4].val = 0
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 1
+y[3].val = 0
+y[4].val = 0
+y[5].val = 1
+Display statement at line 42
+189 <- Admissible !
+
+y[1]1 y[5]=1 y[4]=1
+
+Display statement at line 39
+s[1].val = 0
+s[2].val = 0
+s[3].val = 0
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 5
+x[3].val = 6
+x[4].val = 3
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0.05
+y[3].val = 0.06
+y[4].val = 1
+y[5].val = 1
+Display statement at line 42
+182.76
+
+y[1]1 y[5]=1 y[4]=1 y2=0
+Display statement at line 39
+s[1].val = 5
+s[2].val = 0
+s[3].val = 0
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 8
+x[2].val = 0
+x[3].val = 6
+x[4].val = 3
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 0.06
+y[4].val = 1
+y[5].val = 1
+Display statement at line 42
+187.36
+
+y[1]1 y[5]=1 y[4]=1 y2=0 y3=0
+Display statement at line 39
+s[1].val = 11
+s[2].val = 6
+s[3].val = 0
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 14
+x[2].val = 0
+x[3].val = 0
+x[4].val = 3
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 0
+y[4].val = 1
+y[5].val = 1
+Display statement at line 42
+193
+
+y[1]1 y[5]=1 y[4]=1 y2=0 y3=1
+s[1].val = 5
+s[2].val = 0
+s[3].val = 0
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 8
+x[2].val = 0
+x[3].val = 6
+x[4].val = 3
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 1
+y[4].val = 1
+y[5].val = 1
+Display statement at line 42
+193
+
+y[1]1 y[5]=1 y[4]=1 y2=1
+s[1].val = 0
+s[2].val = 6
+s[3].val = 0
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 11
+x[3].val = 0
+x[4].val = 3
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 1
+y[3].val = 0
+y[4].val = 1
+y[5].val = 1
+Display statement at line 42
+190
+
+y[1]1 y[5]=0
+s[1].val = 0
+s[2].val = 0
+s[3].val = 0
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 5
+x[3].val = 6
+x[4].val = 11
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0.05
+y[3].val = 0.06
+y[4].val = 0.11
+y[5].val = 0
+Display statement at line 42
+177.2
+
+y[1]1 y[5]=0 y4=1
+s[1].val = 0
+s[2].val = 0
+s[3].val = 0
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 5
+x[3].val = 6
+x[4].val = 11
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0.05
+y[3].val = 0.06
+y[4].val = 1
+y[5].val = 0
+Display statement at line 42
+180.76
+
+y[1]1 y[5]=0 y4=1 y2=1
+
+s[1].val = 0
+s[2].val = 6
+s[3].val = 0
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 11
+x[3].val = 0
+x[4].val = 11
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 1
+y[3].val = 0
+y[4].val = 1
+y[5].val = 0
+Display statement at line 42
+188 <---Admissible solution
+ 
+y[1]1 y[5]=0 y4=1 y2=0
+
+s[1].val = 5
+s[2].val = 0
+s[3].val = 0
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 8
+x[2].val = 0
+x[3].val = 6
+x[4].val = 11
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 0.06
+y[4].val = 1
+y[5].val = 0
+Display statement at line 42
+185.36
+
+y[1]1 y[5]=0 y4=1 y2=0 y3=0
+Display statement at line 39
+s[1].val = 11
+s[2].val = 6
+s[3].val = 0
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 14
+x[2].val = 0
+x[3].val = 0
+x[4].val = 11
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 0
+y[4].val = 1
+y[5].val = 0
+Display statement at line 42
+191
+ 
+y[1]1 y[5]=0 y4=1 y2=0 y3=1
+s[1].val = 5
+s[2].val = 0
+s[3].val = 0
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 8
+x[2].val = 0
+x[3].val = 6
+x[4].val = 11
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 1
+y[4].val = 1
+y[5].val = 0
+Display statement at line 42
+191
+
+y[1]1 y[5]=0 y4=0
+s[1].val = 0
+s[2].val = 0
+s[3].val = 11
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 5
+x[3].val = 17
+x[4].val = 0
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0.05
+y[3].val = 0.17
+y[4].val = 0
+y[5].val = 0
+Display statement at line 42
+188.42
+

@@ -1,0 +1,428 @@
+
+s[1].val = 0
+s[2].val = 0
+s[3].val = 0
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 5
+x[3].val = 6
+x[4].val = 3
+x[5].val = 8
+Display statement at line 41
+y[1].val = 0.12
+y[2].val = 0.2
+y[3].val = 0.24
+y[4].val = 0.12
+y[5].val = 0.32
+Display statement at line 42
+171.36
+
+
+le y le plus proche de zero est fixé a zero
+
+y1=0
+
+fail
+
+backtrack 
+
+y1=1
+
+s[1].val = 0
+s[2].val = 0
+s[3].val = 0
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 5
+x[3].val = 6
+x[4].val = 3
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0.2
+y[3].val = 0.24
+y[4].val = 0.12
+y[5].val = 0.32
+Display statement at line 42
+180.16
+
+y1=1 y4=0
+s[1].val = 0
+s[2].val = 0
+s[3].val = 3
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 5
+x[3].val = 9
+x[4].val = 0
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0.2
+y[3].val = 0.36
+y[4].val = 0
+y[5].val = 0.32
+Display statement at line 42
+183.4
+
+y1=1 y4=0 y2=0
+s[1].val = 5
+s[2].val = 0
+s[3].val = 3
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 8
+x[2].val = 0
+x[3].val = 9
+x[4].val = 0
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 0.36
+y[4].val = 0
+y[5].val = 0.32
+Display statement at line 42
+186.8
+
+y1=1 y4=0 y2=0 y5=0
+s[1].val = 5
+s[2].val = 0
+s[3].val = 11
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 8
+x[2].val = 0
+x[3].val = 17
+x[4].val = 0
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 0.68
+y[4].val = 0
+y[5].val = 0
+Display statement at line 42
+196.08
+
+y1=1 y4=0 y2=0 y5=0 y3=0
+s[1].val = 22
+s[2].val = 17
+s[3].val = 11
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 25
+x[2].val = 0
+x[3].val = 0
+x[4].val = 0
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 0
+y[4].val = 0
+y[5].val = 0
+Display statement at line 42
+209 <<< Adm
+
+backtrack
+
+y1=1 y4=0 y2=0 y5=0 y3=1
+s[1].val = 5
+s[2].val = 0
+s[3].val = 11
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 8
+x[2].val = 0
+x[3].val = 17
+x[4].val = 0
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 1
+y[4].val = 0
+y[5].val = 0
+Display statement at line 42
+198 <---nouvelle borne
+
+back track
+
+y1=1 y4=0 y2=0 y5=1
+s[1].val = 5
+s[2].val = 0
+s[3].val = 3
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 8
+x[2].val = 0
+x[3].val = 9
+x[4].val = 0
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 0.36
+y[4].val = 0
+y[5].val = 1
+Display statement at line 42
+188.16
+
+y1=1 y4=0 y2=0 y5=1 y3=0
+
+s[1].val = 14
+s[2].val = 9
+s[3].val = 3
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 17
+x[2].val = 0
+x[3].val = 0
+x[4].val = 0
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 0
+y[4].val = 0
+y[5].val = 1
+Display statement at line 42
+195
+
+backtrack
+
+y1=1 y4=0 y2=0 y5=1 y3=1
+s[1].val = 5
+s[2].val = 0
+s[3].val = 3
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 8
+x[2].val = 0
+x[3].val = 9
+x[4].val = 0
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 1
+y[4].val = 0
+y[5].val = 1
+Display statement at line 42
+192
+
+backtrack
+
+y1=1 y4=0 y2=1
+s[1].val = 0
+s[2].val = 9
+s[3].val = 3
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 14
+x[3].val = 0
+x[4].val = 0
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 1
+y[3].val = 0
+y[4].val = 0
+y[5].val = 0.32
+Display statement at line 42
+187.64
+
+y1=1 y4=0 y2=1 y5=0
+s[1].val = 0
+s[2].val = 17
+s[3].val = 11
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 22
+x[3].val = 0
+x[4].val = 0
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 1
+y[3].val = 0
+y[4].val = 0
+y[5].val = 0
+Display statement at line 42
+195    pas interessant
+
+backtrack
+
+y1=1 y4=0 y2=1 y5=1
+
+s[1].val = 0
+s[2].val = 9
+s[3].val = 3
+s[4].val = 0
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 14
+x[3].val = 0
+x[4].val = 0
+x[5].val = 8
+Display statement at line 41
+y[1].val = 1
+y[2].val = 1
+y[3].val = 0
+y[4].val = 0
+y[5].val = 1
+Display statement at line 42
+189 admissible
+
+backtrack
+
+y1=1 y4=1
+s[1].val = 0
+s[2].val = 0
+s[3].val = 0
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 5
+x[3].val = 6
+x[4].val = 11
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0.2
+y[3].val = 0.24
+y[4].val = 1
+y[5].val = 0
+Display statement at line 42
+183.04
+
+y1=1 y4=1 y2=0
+s[1].val = 5
+s[2].val = 0
+s[3].val = 0
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 8
+x[2].val = 0
+x[3].val = 6
+x[4].val = 11
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 0.24
+y[4].val = 1
+y[5].val = 0
+Display statement at line 42
+186.44
+
+y1=1 y4=1 y2=0 y3=0
+s[1].val = 11
+s[2].val = 6
+s[3].val = 0
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 14
+x[2].val = 0
+x[3].val = 0
+x[4].val = 11
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 0
+y[4].val = 1
+y[5].val = 0
+Display statement at line 42
+191
+ *
+y1=1 y4=1 y2=0 y3=1
+s[1].val = 5
+s[2].val = 0
+s[3].val = 0
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 8
+x[2].val = 0
+x[3].val = 6
+x[4].val = 11
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 0
+y[3].val = 1
+y[4].val = 1
+y[5].val = 0
+Display statement at line 42
+191 <-- pas interessant
+
+
+backtrack
+
+
+y1=1 y4=1 y2=1
+Display statement at line 39
+s[1].val = 0
+s[2].val = 6
+s[3].val = 0
+s[4].val = 8
+s[5].val = 0
+s[0].val = 0
+Display statement at line 40
+x[1].val = 3
+x[2].val = 11
+x[3].val = 0
+x[4].val = 11
+x[5].val = 0
+Display statement at line 41
+y[1].val = 1
+y[2].val = 1
+y[3].val = 0
+y[4].val = 1
+y[5].val = 0
+Display statement at line 42
+188 <<-- Admissible et nouvelel borne
+
+ARBRE TERMINE : OPTIMALE = 188
+
+
