@@ -26,7 +26,6 @@ s.t. Activation{i in T}: y[i]*sum{j in i..nbpostes}d[j] >= x[i];
 s.t. contr1 :s[0]=0;
 s.t. contr2 :s[nbpostes]=0;
 
-s.t. coupe{i in T} : yi*pi>sum{sum{    
 
 #s.t. contr3 :y[1]=1;
 #s.t. contr4 :y[2]=1;
@@ -41,7 +40,7 @@ solve;
 display : s;
 display : x;
 display : y;
-display : sum{i in T} (y[i]*f[i] + x[i]*p[i] + h[i]*s[i]);
+display : sum{i in T} (y[i]*f[i] + x[i]*p[i] + h[i]*s[i]); #fonction objectif à recopier
 
 data;
 

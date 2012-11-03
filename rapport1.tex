@@ -1,0 +1,187 @@
+\documentclass[a4paper,11pt,twoside]{report}
+\usepackage[T1]{fontenc}
+\usepackage[frenchb]{babel} %active le mode français
+\usepackage[latin1,utf8]{inputenc} % Mettre des accents
+\usepackage[top=2cm , bottom=2cm , left=2cm , right=2cm]{geometry} %propriétés de notre page
+\usepackage{amsmath} %liste de symboles et applications mathématiques
+\usepackage{amsfonts} %idem
+\usepackage{color} %Permet d'utiliser la couleur dans nos documents
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{listings} %Paquet de coloration syntaxique (langages)
+\usepackage{hyperref} % Créer des liens et des signets 
+\usepackage[babel=true]{csquotes} %permet les quotations (guillemets)
+\usepackage{graphicx} %Importation d'image
+\usepackage{fancyhdr} %en-tête et pieds de page+
+\usepackage{lastpage} %permet d'obtenir le nombre total de page
+\usepackage{multido}
+\usepackage{eurosym}
+\usepackage{listingsutf8}
+\usepackage{tikz}
+\usepackage{ulem}
+\usepackage{colortbl} %permet de mettre de personnaliser les colones des tabular
+\usepackage{pdfpages}
+\usepackage{appendix} %annexes
+\setlength{\headheight}{15pt}
+\lstset{language=C,
+	breaklines=true,
+	numbers=left,
+	keywordstyle=\color{blue},
+	commentstyle=\color{Gray},
+	stringstyle=\color{red},
+	tabsize=4,
+	framexleftmargin=7mm,
+	frame=single
+	}
+% Informations du rapport
+\title {Rapport de TP \\ Problème de production de type ULS}
+\author {Quentin Tonneau - Camille Drancourt}
+\date{}
+\renewcommand{\thesection}{\arabic{section}}
+%Propriétés des liens
+\hypersetup{
+colorlinks=true, %colorise les liens  
+urlcolor= blue, %couleur des hyperliens 
+linkcolor= blue,%couleur des liens internes
+citecolor=black
+} 
+%\setlength{\parindent}{0cm}
+\addto\captionsfrench{
+	\renewcommand{\chaptername}{Partie}
+}
+
+\fancypagestyle{plain}
+{
+
+	\fancyhead{}
+	\fancyfoot{}
+	\lhead{Quentin Tonneau - Camille Drancourt}
+	\rhead{Université de Nantes}
+	\chead{Problème de production de type ULS}
+}
+\begin{document}
+\tableofcontents
+\newpage
+
+\chapter{Description du problème}
+Le problème de planification de production étudié dans cet exercice est appelé \textit{Uncapacitated Lot-Sizing Problem}. Comme son nom l'indique, il n'y a dans ce cas précis aucune contrainte de capacité ou de limite de production.
+Le plan de production est décomposé en T instances, dont on cherche à décider l'ouverture ou non ($y_t$), ainsi que la quantité d'éléments à produire $x_t$. L'ouverture d'une instance entraîne un coût fixe ($f_t$), ainsi qu'un coût unitaire de production ($p_t$).
+Il faut impérativement subvenir aux demandes des clients pour tout instant $t$, mais il est possible à une instance $t$ de produire plus que nécessaire, et stocker l'ensemble de la ``surproduction'' ($s_t$) jusqu'à $t+1$ moyennant un coût unitaire de $h_t$.
+
+
+Nous tentons dans cette analyse de résoudre quelques instances de ce problème via un algorithme de \textbf{branch \& bound}, et nous essayons de comprendre quelles sont les astuces de modélisation et les choix de résolution permettant d'améliorer au fur et à mesure notre rapidité de résolution.
+
+\chapter{Le projet initial}
+\section{La modélisation}
+Les algorithmes de branch \& bound sont très utiles pour résoudre des problèmes en variables entières, en effectuant une série de résolution du problème ``relaché'' et en introduisant à chaque étape une nouvelle contrainte d'intégrité sur une des variables de décision.
+Nous introduisons donc un modèle correspondant au problème ci-dessus, mais dont les variables entières ou binaires ($y_t$) ne possèdent pas de contraintes d’intégrité.
+
+Voici le modèle proposé :
+\[
+ \left[ \begin{matrix}
+         min z= & \displaystyle \sum_{t\in \{1...T\}} y_t \times f_t + x_t \times p_t + s_t \times h_t \\
+         s/c & s_{t-1}+x_{t}& =d_t+s_t & \forall t\in \{0...T\} \\
+         & y_t*M &\geq x_t \\
+         &s_0&=0\\
+         &s_t&=0\\
+         &y_t,x_t,s_t&\geq 0
+        \end{matrix}
+ \right]
+\]
+La première contrainte, que nous appelons contrainte d'équilibre, impose l'absence de perte de produit lors de la production. En effet, l'ensemble des éléments entrants (stock précédent et production) soit être égal à l'ensemble des éléments sortants (ventes et stock).
+La seconde contrainte implémente une constante M très grande imposant l'ouverture de l'instance si au moins un élément est produit par cette instance.
+Les contraintes (3) et (4) indiquent l'état du stock au départ et à l'arrivé, fixés ici à 0.
+
+\section{L'algorithme}
+Pour résoudre entièrement le problème, nous avons exécuté à la main l'algorithme du branch \& bound en effectuant les choix suivants :
+\begin{itemize}
+ \item Relâcher ou contraindre les variables $y_t$ à 0 ou 1.
+ \item Toujours choisir la variable $y_i$ la plus proche de 0 et la fixer à 0 (dans un premier temps)
+\end{itemize}
+
+\section{L'implémentation}
+Nous utilisons pour la résolution le solveur GLPK sous sa forme ``lpsolve''. L'implémentation de la modélisation dans ce langage est donné en Annexe \ref{implementationlpsolve}
+Afin de contraindre une variable, nous ajoutons à chaque étape une ligne de type :
+\begin{verbatim}
+ s.t. contrX :y[A]=B;
+\end{verbatim}
+ avec A=$t$ et B$\in \{0,1\}$
+
+\section{Résultats}
+%TODO : Dessiner l'arbre obtenu
+
+
+
+%TODO : Sections : amélioration de M (valeur fixe, puis tableau de valeurs)
+
+%TODO : Sections : contraintes additionnelles (coupes)
+
+%TODO : section  ; analyse et dessin avec branches directes
+
+%TODO : Explications Wagner-Whistin
+
+%TODO : Problème final
+
+%TODO : conclusion
+
+
+
+
+
+
+
+
+
+\begin{appendices}
+\chapter{Implémentation lpsolve}
+\label{implementationlpsolve}
+\begin{verbatim}
+ #Données
+param nbpostes;
+
+set T:=1..nbpostes;
+set T2:=0..nbpostes;
+param M:=25;
+
+param d{T};
+param h{T};
+param p{T};
+param f{T};
+
+#Variables de décision
+var x{T} >=0;
+var y{T} >=0;
+var s{T2}>=0;
+
+#Fonction objectif
+minimize couts : sum{i in T} (y[i]*f[i] + x[i]*p[i] + h[i]*s[i]);
+
+#Contraintes
+
+s.t. Equilibre{i in T} : (s[i-1]+x[i])=(s[i]+d[i]);
+s.t. Activation{i in T}: y[i]*sum{j in i..nbpostes}d[j] >= x[i];
+s.t. contr1 :s[0]=0;
+s.t. contr2 :s[nbpostes]=0;
+
+#Résolution
+solve;
+
+#Affichange des res
+display : s;
+display : x;
+display : y;
+display : sum{i in T} (y[i]*f[i] + x[i]*p[i] + h[i]*s[i]); #fonction objectif à recopier
+
+data;
+
+param nbpostes:= 5;
+param d:= 1 3 2 5 3 6 4 3 5 8;
+param p:= 1 2 2 4 3 6 4 8 5 10 ;
+param h:= 1 3 2 2 3 3 4 2 5 0;
+param f:= 1 10 2 8 3 6 4 4 5 2;
+
+end;
+\end{verbatim}
+\end{appendices}
+
+\end{document}
+
