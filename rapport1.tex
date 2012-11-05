@@ -145,7 +145,24 @@ Dans l'instance donnée, M devient donc un tableau de $5$ valeurs égales à $\{
 
 
 \section{Cas Wagner-Whitin}
+Nous sommes dans un cas de coûts de Warner-Within lorsqu'il est systématiquement plus coûteux de produire et de stocker un produit pour une instance ultérieure, que de produire directement à l'instance $t$ (unitairement).
+Un exemple de cas est donné dans le tableau \ref{warner1}
+\begin{table}[h]
+  \centering
+ \begin{tabular}{|c|ccccc|}
+\hline
+$t$&1&2&3&4&5\\\hline\hline
+$d_t$&3&5&6&3&8\\
+$p_t$&3&4&4&8&3\\
+$h_t$&2&1&5&1&-\\
+$f_t$&10&8&6&4&2\\\hline
+\end{tabular}
+ \caption{Exemple de cas : Warner-Within}
+ \label{warner1}
+\end{table}
 
+La logique nous amène alors à une résolution simple : On ne stocke jamais de produit, et on produit pour chaque instance $t$ la demande $d_t$ associée. Néanmoins, nous ne pouvons pas appliquer cette méthode directement.
+En effet, si le gain total obtenu ($(p_t-s_{t-1})\times d_t$) est inférieur au coût initial de l'instance $t$ ($f_t$), alors il est plus intéressant de stocker. 
 
 \section{Instance finale}
 
