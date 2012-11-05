@@ -14,7 +14,7 @@
 \usepackage{fancyhdr} %en-tête et pieds de page+
 \usepackage{lastpage} %permet d'obtenir le nombre total de page
 \usepackage{multido}
-\usepackage{eurosym}
+%\usepackage{eurosym}
 \usepackage{listingsutf8}
 \usepackage{tikz}
 \usepackage{ulem}
@@ -137,7 +137,8 @@ Dans l'instance donnée, M devient donc un tableau de $5$ valeurs égales à $\{
 
 
 \section{Contraintes de coupes et inégalités valides}
-
+Notre modélisation peut être encore plus précise. En effet on peut indiquer au solveur que nous ne voulons pas ouvrir une instance si l'on a déja stocké la production repondant à la demande.
+\begin{equation}s_{t-1} <= d_{t}*(1-y_{t})\end{equation}
 
 
 \section{Étude de la structure des solutions}
