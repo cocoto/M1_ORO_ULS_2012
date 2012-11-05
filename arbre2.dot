@@ -1,0 +1,28 @@
+graph g{
+1[label="174.21"];
+2[label="impossible" shape="rectangle"];
+3[label="183.03"];
+4[label="186"];
+5[label="189"];
+6[label="195" shape="rectangle" color="red"];
+7[label="192" shape="rectangle" color="red"];
+8[label="187.11"];
+9[label="191" shape="rectangle" color="red"];
+10[label="191" shape="rectangle"];
+11[label="187.09"];
+12[label="189" shape="rectangle" color="red"];
+13[label="188" shape="rectangle" color="red"];
+
+1--2[label="y1=0"];
+1--3[label="y1=1"];
+3--4[label="y2=0"];
+4--5[label="y4=0"];
+5--6[label="y5=0"];
+5--7[label="y5=1"];
+4--8[label="y4=1"];
+8--9[label="y3=0"];
+8--10[label="y3=1"];
+3--11[label="y2=1"];
+11--12[label="y4=0"];
+11--13[label="y4=1"];
+}

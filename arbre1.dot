@@ -1,0 +1,55 @@
+graph g{
+1[label="167.34"];
+2[label="Impossible" shape="rectangle"];
+1--2[label="y1=0"];
+
+3[label="177.04"];
+1--3[label="y1=1"];
+
+4[label="177"];
+3--4[label="y5=0"];
+
+5[label="188.42"];
+6[label="180"];
+4--5[label="y4=0"];
+4--6[label="y4=1"];
+
+7[label="188" color="red" shape="rectangle"];
+8[label="185.36"];
+
+6--7[label="y2=1"];
+6--8[label="y2=0"];
+
+9[label="191" shape="rectangle"];
+10[label="191" shape="rectangle"];
+
+8--9[label="y3=0"];
+8--10[label="y3=1"];
+
+11[label="178.88"];
+12[label="181.94"];
+
+13[label="186.54"];
+14[label="195" shape="rectangle"];
+15[label="192" color="red" shape="rectangle"];
+16[label="189" color="red" shape="rectangle"];
+17[label="182.76"];
+18[label="190" shape="rectangle"];
+19[label="187.36"];
+20[label="193" shape="rectangle"];
+21[label="193" shape="rectangle"];
+
+3--11[label="y5=1"];
+11--12[label="y4=0"];
+12--13[label="y2=0"];
+13--14[label="y3=0"];
+13--15[label="y3=1"];
+12--16[label="y2=1"];
+11--17[label="y4=1"];
+17--18[label="y2=1"];
+17--19[label="y2=0"];
+19--20[label="y3=1"];
+19--21[label="y3=0"];
+
+
+}

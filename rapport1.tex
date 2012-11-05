@@ -95,7 +95,7 @@ Les contraintes (3) et (4) indiquent l'état du stock au départ et à l'arrivé
 Pour résoudre entièrement le problème, nous avons exécuté à la main l'algorithme du branch \& bound en effectuant les choix suivants :
 \begin{itemize}
  \item Relâcher ou contraindre les variables $y_t$ à 0 ou 1.
- \item Toujours choisir la variable $y_i$ la plus proche de 0 et la fixer à 0 (dans un premier temps)
+ \item Toujours choisir la variable $y_t$ la plus proche de 0 et la fixer à 0 (dans un premier temps)
 \end{itemize}
 
 \section{L'implémentation}
@@ -105,24 +105,52 @@ Afin de contraindre une variable, nous ajoutons à chaque étape une ligne de ty
  s.t. contrX :y[A]=B;
 \end{verbatim}
  avec A=$t$ et B$\in \{0,1\}$
-
+ 
+ Nous fixons également M à 100, valeur arbitrairement grande.
 \section{Résultats}
-%TODO : Dessiner l'arbre obtenu
+L'exécution de l'algorithme de branch\&bound nous permet d'obtenir l'arbre de la figure \ref{graph1}
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=0.8\textwidth]{graph1.png}
+ \caption{Arbre initial}
+ \label{graph1}
+\end{figure}
+
+On obtient un résultat optimal égal à 188, avec de très nombreuses branches et n\oe{}uds parcourus. Les choix de variables et de valeurs (algorithme de branch\&bound) ne sont pas optimaux, et il est sûrement possible d'améliorer notre modélisation ou notre système de résolution.
+\chapter{Amélioration du modèle}
+\section{Les valeurs des variables}
+Le seul élément variable dans notre modélisation est $M$. En cherchant à améliorer la précision des résolution du problème relâché dans notre branch\&bound, nous arrivons à la conclusion suivante :
+
+Plus M est petit, plus l'encadrement des valeurs possibles de chaque $y_t$ est petite. La valeur retournée par le solveur est donc plus proche de la valeurs maximum réelle.
+Il faut cependant toujours conserver un M supérieur à la production maximale de chaque instance. On remarque, que la production maximale d'une instance est égale à la demande totale des clients. En effet, nous pourrions choisir de produire tous les éléments lors de la première instance, puis de répartir la production sur toutes les instances suivantes.
+Dans l'instance donnée, $M$ doit être supérieure ou égale à 25. En modifiant M à 25, nous obtenons un arbre très similaire à la première résolution.
+
+Afin d'améliorer encore notre modélisation, nous observons que la valeur maximale de M dépend de l'instance $t$. En effet, on ne peut produire au maximum que la demande totale \textbf{restante}.
+Dans l'instance donnée, M devient donc un tableau de $5$ valeurs égales à $\{25, 22, 17, 11, 8\}$. Nous reprenons alors l'algorithme de branch\&bound, et nous obtenons l'arbre de la figure \ref{graph2}\\
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=\textwidth/2]{graph2.png}
+ \caption{Modification de la valeur de M : tableau}
+ \label{graph2}
+\end{figure}
 
 
 
-%TODO : Sections : amélioration de M (valeur fixe, puis tableau de valeurs)
+\section{Contraintes de coupes et inégalités valides}
 
-%TODO : Sections : contraintes additionnelles (coupes)
 
-%TODO : section  ; analyse et dessin avec branches directes
 
-%TODO : Explications Wagner-Whistin
+\section{Étude de la structure des solutions}
 
-%TODO : Problème final
 
-%TODO : conclusion
 
+\section{Cas Wagner-Whitin}
+
+
+\section{Instance finale}
+
+
+\chapter{Conclusion}
 
 
 
@@ -140,7 +168,7 @@ param nbpostes;
 
 set T:=1..nbpostes;
 set T2:=0..nbpostes;
-param M:=25;
+param M:=100;
 
 param d{T};
 param h{T};
@@ -158,7 +186,7 @@ minimize couts : sum{i in T} (y[i]*f[i] + x[i]*p[i] + h[i]*s[i]);
 #Contraintes
 
 s.t. Equilibre{i in T} : (s[i-1]+x[i])=(s[i]+d[i]);
-s.t. Activation{i in T}: y[i]*sum{j in i..nbpostes}d[j] >= x[i];
+s.t. Activation{i in T}: y[i]*M >= x[i];
 s.t. contr1 :s[0]=0;
 s.t. contr2 :s[nbpostes]=0;
 
