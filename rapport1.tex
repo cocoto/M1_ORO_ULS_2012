@@ -107,7 +107,7 @@ Voici le modèle proposé :
         \end{matrix}
  \right]
 \]
-La première contrainte, que nous appelons contrainte d'équilibre, impose l'absence de perte de produit lors de la production. En effet, l'ensemble des éléments entrants (stock précédent et production) soit être égal à l'ensemble des éléments sortants (ventes et stock).
+La première contrainte, que nous appelons contrainte d'équilibre, impose l'absence de perte de produit lors de la production. En effet, l'ensemble des éléments entrants (stock précédent et production) doit être égal à l'ensemble des éléments sortants (ventes et stock).
 La seconde contrainte implémente une constante M très grande imposant l'ouverture de l'instance si au moins un élément est produit par cette instance.
 Les contraintes (3) et (4) indiquent l'état du stock au départ et à l'arrivé, fixés ici à 0.
 \newpage
@@ -119,7 +119,7 @@ Pour résoudre entièrement le problème, nous avons exécuté à la main l'algo
 \end{itemize}
 
 \section{L'implémentation}
-Nous utilisons pour la résolution le solveur GLPK sous sa forme ``lpsolve''. L'implémentation de la modélisation dans ce langage est donné en Annexe \ref{implementationlpsolve}
+Nous utilisons pour la résolution le solveur GLPK sous sa forme ``GNU Math Prog''. L'implémentation de la modélisation dans ce langage est donné en Annexe \ref{implementationlpsolve}.
 Afin de contraindre une variable, nous ajoutons à chaque étape une ligne de type :
 \begin{verbatim}
  s.t. contrX :y[A]=B;
@@ -161,9 +161,9 @@ Dans cette section, nous avons intégré à notre modèle une contrainte de type
 \begin{equation}
 s_{t-1} <= d_{t}*(1-y_{t}) \label{equ1}
 \end{equation}
-L'inéquation (\ref{equ1}) exprime la volonté, pour une date $t$, de produire et de stocker à l'instance $t-1$ l'intégrité de la demande de la date $t$.
-En effet, il est irrationel dans un probleme sans contrainte de capacité ($ULS$) de se limiter en quantité à l'instance la moins couteuse.
-Il est donc inutile d'ouvrir une instance dès que l'on a réussi à stocker suffisament a l'instance précédente.
+L'inéquation (\ref{equ1}) exprime la volonté, pour une date $t$, de produire et de stocker à l'instance $t-1$ l'intégralité de la demande de la date $t$.
+En effet, il est irrationnel dans un problème sans contrainte de capacité ($ULS$) de se limiter en quantité à l'instance la moins coûteuse.
+Il est donc inutile d'ouvrir une instance dès que l'on a réussi à stocker suffisamment a l'instance précédente.
 \begin{equation}
 s_{t-1}+x_{t} = d_{t}+s_{t} \geq d_{t}
 \end{equation}
@@ -191,7 +191,7 @@ En observant la forme de la solution donnée, on peut effectuer la remarque suiv
 
 
 
-On peut alors voir la production à $t_i$ livrer directement $t_i$ et $t_{i+1}$, comme le montre la figure \ref{representation_graphique}. Le schéma fait disparaître la notion de stock et donne l'impression d'une livraison directe en revanche.
+On peut alors voir la production à $t_i$ livrer directement $d_i$ et $d_{i+1}$, comme le montre la figure \ref{representation_graphique}. Le schéma fait disparaître la notion de stock et donne l'impression d'une livraison directe en revanche.
 
 
 \begin{figure}[h]
