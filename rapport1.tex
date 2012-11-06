@@ -157,9 +157,28 @@ Dans l'instance donnée, M devient donc un tableau de $5$ valeurs égales à $\{
 
 
 \section{Contraintes de coupes et inégalités valides}
-Notre modélisation peut être encore plus précise. En effet on peut indiquer au solveur que nous ne voulons pas ouvrir une instance si l'on a déja stocké la production repondant à la demande.
-\begin{equation}s_{t-1} <= d_{t}*(1-y_{t})\end{equation}
+Dans cette section, nous avons intégré à notre modèle une contrainte de type inégalité valide présenté par Laurence Wolsey. $(3.1)$
+\begin{equation}
+s_{t-1} <= d_{t}*(1-y_{t})
+\end{equation}
+L'inéquation $(3.1)$ exprime la volonté, pour une date $t$, de produire et de stocker à l'instance $t-1$ l'intégrité de la demande de la date $t$.
+En effet, il est irrationel dans un probleme sans contrainte de capacité ($ULS$) de se limiter en quantité à l'instance la moins couteuse.
+Il est donc inutile d'ouvrir une instance dès que l'on a réussi à stocker suffisament a l'instance précédente.
+\begin{equation}
+s_{t-1}+x_{t} = d_{t}+s_{t} \geq d_{t}
+\end{equation}
+ \&
+\begin{equation}
+y_{t}=0 \Rightarrow x_{t}=0
+\end{equation}
+Ainsi ($3.1$) est toujours valide, et élague l'arborescence des solutions en forçant des variables $y_{t}$ relachées à se fixer à 0 .
 
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=\textwidth/4]{graph3.png}
+ \caption{Avec Contrainte de Coupe}
+ \label{graph2}
+\end{figure}
 
 \section{Étude de la structure des solutions}
 
