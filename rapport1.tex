@@ -78,7 +78,7 @@ citecolor=black
  \vfill
 \end{center}
 X7IO010\hfill Novembre 2012
-\newpage ~
+\newpage \pagestyle{empty}~
 \tableofcontents
 \newpage
 \pagestyle{plain}
@@ -110,7 +110,7 @@ Voici le modèle proposé :
 La première contrainte, que nous appelons contrainte d'équilibre, impose l'absence de perte de produit lors de la production. En effet, l'ensemble des éléments entrants (stock précédent et production) soit être égal à l'ensemble des éléments sortants (ventes et stock).
 La seconde contrainte implémente une constante M très grande imposant l'ouverture de l'instance si au moins un élément est produit par cette instance.
 Les contraintes (3) et (4) indiquent l'état du stock au départ et à l'arrivé, fixés ici à 0.
-
+\newpage
 \section{L'algorithme}
 Pour résoudre entièrement le problème, nous avons exécuté à la main l'algorithme du branch \& bound en effectuant les choix suivants :
 \begin{itemize}
@@ -157,11 +157,11 @@ Dans l'instance donnée, M devient donc un tableau de $5$ valeurs égales à $\{
 
 
 \section{Contraintes de coupes et inégalités valides}
-Dans cette section, nous avons intégré à notre modèle une contrainte de type inégalité valide présenté par Laurence Wolsey. $(3.1)$
+Dans cette section, nous avons intégré à notre modèle une contrainte de type inégalité valide présenté par Laurence Wolsey. (\ref{equ1})
 \begin{equation}
-s_{t-1} <= d_{t}*(1-y_{t})
+s_{t-1} <= d_{t}*(1-y_{t}) \label{equ1}
 \end{equation}
-L'inéquation $(3.1)$ exprime la volonté, pour une date $t$, de produire et de stocker à l'instance $t-1$ l'intégrité de la demande de la date $t$.
+L'inéquation (\ref{equ1}) exprime la volonté, pour une date $t$, de produire et de stocker à l'instance $t-1$ l'intégrité de la demande de la date $t$.
 En effet, il est irrationel dans un probleme sans contrainte de capacité ($ULS$) de se limiter en quantité à l'instance la moins couteuse.
 Il est donc inutile d'ouvrir une instance dès que l'on a réussi à stocker suffisament a l'instance précédente.
 \begin{equation}
@@ -171,7 +171,7 @@ s_{t-1}+x_{t} = d_{t}+s_{t} \geq d_{t}
 \begin{equation}
 y_{t}=0 \Rightarrow x_{t}=0
 \end{equation}
-Ainsi ($3.1$) est toujours valide, et élague l'arborescence des solutions en forçant des variables $y_{t}$ relachées à se fixer à 0 .
+Ainsi (\ref{equ1}) est toujours valide, et élague l'arborescence des solutions en forçant des variables $y_{t}$ relachées à se fixer à 0 .
 Les résultats ont confirmé l'amélioration du modèle puisque l'arbre obtenue par Branch and Bound est réduit a deux feuilles (cf figure \ref{graph3}).
 \begin{figure}[h]
  \centering
@@ -180,11 +180,26 @@ Les résultats ont confirmé l'amélioration du modèle puisque l'arbre obtenue 
  \label{graph3}
 \end{figure}
 
-
+\newpage
 \section{Étude de la structure des solutions}
+En observant la forme de la solution donnée, on peut effectuer la remarque suivante :
 
 
 
+\textit{Si une instance est ouverte et précède une instance fermée, alors elle produit suffisamment pour $d_t$ et $d_{t+1}$.}
+
+
+
+
+On peut alors voir la production à $t_i$ livrer directement $t_i$ et $t_{i+1}$, comme le montre la figure \ref{representation_graphique}. Le schéma fait disparaître la notion de stock et donne l'impression d'une livraison directe en revanche.
+
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[width=\textwidth]{Diagramme1.png}
+ \caption{Représentation visuelle de la solution}
+ \label{representation_graphique}
+\end{figure}
 \section{Cas Wagner-Whitin}
 Nous sommes dans un cas de coûts de Warner-Within lorsqu'il est systématiquement plus coûteux de produire et de stocker un produit pour une instance ultérieure, que de produire directement à l'instance $t$ (unitairement).
 Un exemple de cas est donné dans le tableau \ref{warner1}
@@ -258,7 +273,7 @@ solve;
 display : s;
 display : x;
 display : y;
-display : sum{i in T} (y[i]*f[i] + x[i]*p[i] + h[i]*s[i]); #fonction objectif à recopier
+display : sum{i in T} (y[i]*f[i] + x[i]*p[i] + h[i]*s[i]);
 
 data;
 
@@ -316,7 +331,8 @@ var s3>=0;
 var s4>=0;
 
 #Fonction objectif
-minimize couts : 2*x1+4*x2+6*x3+8*x4+10*x5+3*s1+2*s2+3*s3+2*s4+10*y1+8*y2+6*y3+4*y4+2*y5;
+minimize couts : 2*x1+4*x2+6*x3+8*x4+10*x5+3*s1+2*s2+3*s3
+		 +2*s4+10*y1+8*y2+6*y3+4*y4+2*y5;
 
 
 #Contraintes
@@ -373,7 +389,8 @@ display : x2;
 display : x3;
 display : x4;
 display : x5;
-display : 2*x1+4*x2+6*x3+8*x4+10*x5+3*s1+2*s2+3*s3+2*s4+10*y1+8*y2+6*y3+4*y4+2*y5; #fonction objectif à recopier
+display : 2*x1+4*x2+6*x3+8*x4+10*x5+3*s1+2*s2+3*s3
+	  +2*s4+10*y1+8*y2+6*y3+4*y4+2*y5;
 \end{verbatim}
 
 \end{appendices}
