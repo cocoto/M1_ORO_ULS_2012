@@ -163,7 +163,8 @@ $f_t$&10&8&6&4&2\\\hline
 \end{table}
 
 La logique nous amène alors à une résolution simple : On ne stocke jamais de produit, et on produit pour chaque instance $t$ la demande $d_t$ associée. Néanmoins, nous ne pouvons pas appliquer cette méthode directement.
-En effet, si le gain total obtenu ($(p_t-s_{t-1})\times d_t$) est inférieur au coût initial de l'instance $t$ ($f_t$), alors il est plus intéressant de stocker. 
+En effet, cette solution est valable lorsque les coûts constants (activation d'une instance) sont très faibles ou tous (quasi) égaux. Si le gain total obtenu ($(p_t-(p_{t-1}+s_{t-1}))\times d_t$) est inférieur au coût initial de l'instance $t$ ($f_t$), alors il est plus intéressant de stocker que de produire (à $t$).
+Le tableau ci-dessus (figure \ref{warner1}) en est un exemple : Avec une demande $d_2$ égale à 5, et un bénéfice unitaire $p_2-(p_1+s_1)$ de $1$, le gain total en produisant est de 5, alors que le coût initial de l'instance $t_2$ est de 8. Il est donc plus économique de produire en $t_1$ et de stocker (gain : 3).
 
 \section{Instance finale}
 
