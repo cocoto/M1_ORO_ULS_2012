@@ -54,14 +54,34 @@ citecolor=black
 
 	\fancyhead{}
 	\fancyfoot{}
-	\lhead{Quentin Tonneau - Camille Drancourt}
+	\fancyfoot[LO RE]{\textit{Q.Tonneau - C.Drancourt}}
+	\lhead{X7IO010}
 	\rhead{Université de Nantes}
 	\chead{Problème de production de type ULS}
+	\fancyfoot[LE]{\thepage}
+	\fancyfoot[RO]{\thepage}
 }
 \begin{document}
+\thispagestyle{empty}
+\Large{\uline{
+\noindent Camille Drancourt}
+
+
+\uline{Quentin Tonneau}}
+\vfill
+\begin{center}
+\Huge{
+ Rapport de Travaux Pratiques\\
+ \textbf{Problème de Production de type ULS}}
+ \vfill
+ \includegraphics[width=0.75\textwidth]{logo_univ_nantes.png}
+ \vfill
+\end{center}
+X7IO010\hfill Novembre 2012
+\newpage ~
 \tableofcontents
 \newpage
-
+\pagestyle{plain}
 \chapter{Description du problème}
 Le problème de planification de production étudié dans cet exercice est appelé \textit{Uncapacitated Lot-Sizing Problem}. Comme son nom l'indique, il n'y a dans ce cas précis aucune contrainte de capacité ou de limite de production.
 Le plan de production est décomposé en T instances, dont on cherche à décider l'ouverture ou non ($y_t$), ainsi que la quantité d'éléments à produire $x_t$. L'ouverture d'une instance entraîne un coût fixe ($f_t$), ainsi qu'un coût unitaire de production ($p_t$).
@@ -166,12 +186,14 @@ La logique nous amène alors à une résolution simple : On ne stocke jamais de 
 En effet, cette solution est valable lorsque les coûts constants (activation d'une instance) sont très faibles ou tous (quasi) égaux. Si le gain total obtenu ($(p_t-(p_{t-1}+s_{t-1}))\times d_t$) est inférieur au coût initial de l'instance $t$ ($f_t$), alors il est plus intéressant de stocker que de produire (à $t$).
 Le tableau ci-dessus (figure \ref{warner1}) en est un exemple : Avec une demande $d_2$ égale à 5, et un bénéfice unitaire $p_2-(p_1+s_1)$ de $1$, le gain total en produisant est de 5, alors que le coût initial de l'instance $t_2$ est de 8. Il est donc plus économique de produire en $t_1$ et de stocker (gain : 3).
 
-\section{Instance finale}
-
+\section{Modélisation finale}
+Une troisième modélisation nous est proposé. On décompose ici la production de chaque instance, en sous-productions $w_{ij}$ (production de $i$ à destination de la demande $d_i$).
+Ainsi modélisé, s'il y a une production $x_t>0$, alors $y_t$ sera forcément égal à 1, et le problème sera résolu en un appel au solveur. L'implémentation effectuée en Annexe \ref{pbfinal} nous donne en effet la valeur 188 (admissible) dès la racine de l'arbre.
 
 \chapter{Conclusion}
-
-
+On voit au travers des essais et améliorations que l'algorithme de branch\&bound est efficace pour résoudre un problème en variables entières uniquement si la modélisation associée est efficace.
+Les choix de parcours de l'arbre nous ne nous amènent pas rapidement à la meilleure solution, on peut donc imaginer qu'il existe des heuristiques/méta-heuristiques plus efficaces pour choisir les branches à explorer.
+On peut par exemple prêter une attention particulière aux coûts duaux ainsi qu'à l'intervalle de stabilité des variables $y_t$.
 
 
 
@@ -228,6 +250,112 @@ param f:= 1 10 2 8 3 6 4 4 5 2;
 
 end;
 \end{verbatim}
+
+\chapter{Implémentation du problème final}
+\label{pbfinal}
+\begin{verbatim}
+ #Variables de décision
+var w11>=0;
+var w12>=0;
+var w13>=0;
+var w14>=0;
+var w15>=0;
+var w21>=0;
+var w22>=0;
+var w23>=0;
+var w24>=0;
+var w25>=0;
+var w31>=0;
+var w32>=0;
+var w33>=0;
+var w34>=0;
+var w35>=0;
+var w41>=0;
+var w42>=0;
+var w43>=0;
+var w44>=0;
+var w45>=0;
+var w51>=0;
+var w52>=0;
+var w53>=0;
+var w54>=0;
+var w55>=0;
+var x1>=0;
+var x2>=0;
+var x3>=0;
+var x4>=0;
+var x5 >=0;
+var y1>=0;
+var y2>=0;
+var y3>=0;
+var y4>=0;
+var y5>=0;
+var s1>=0;
+var s2>=0;
+var s3>=0;
+var s4>=0;
+
+#Fonction objectif
+minimize couts : 2*x1+4*x2+6*x3+8*x4+10*x5+3*s1+2*s2+3*s3+2*s4+10*y1+8*y2+6*y3+4*y4+2*y5;
+
+
+#Contraintes
+
+s.t. contr1 : w11=3;
+s.t. contr2 : w12+w22=5;
+s.t. contr3 : w13+w23+w33=6;
+s.t. contr4 : w14+w24+w34+w44=3;
+s.t. contr5 : w15+w25+w35+w45+w55=8;
+
+s.t. contr6 : w11<=3*y1;
+s.t. contr7 : w12<=5*y1;
+s.t. contr8 : w13<=6*y1;
+s.t. contr9 : w14<=3*y1;
+s.t. contr10 : w15<=8*y1;
+
+s.t. contr11 : w22<=5*y2;
+s.t. contr12 : w23<=6*y2;
+s.t. contr13 : w24<=3*y2;
+s.t. contr14 : w25<=8*y2;
+
+s.t. contr15 : w33<=6*y3;
+s.t. contr16 : w34<=3*y3;
+s.t. contr17 : w35<=8*y3;
+
+s.t. contr18 : w44<=3*y4;
+s.t. contr19 : w45<=8*y4;
+
+s.t. contr20 : w55<=8*y5;
+
+s.t. contr21 : x1=w11+w12+w13+w14+w15;
+s.t. contr22 : x2=w22+w23+w24+w25;
+s.t. contr23 : x3=w33+w34+w35;
+s.t. contr24 : x4=w44+w45;
+s.t. contr25 : x5=w55;
+
+s.t. contr26 : s1=x1-3;
+s.t. contr27 : s2=x1+x2-8;
+s.t. contr28 : s3=x1+x2+x3-14;
+s.t. contr29 : s4=x1+x2+x3+x4-17;
+
+#Résolution
+solve;
+
+#Affichange des res
+display : y1;
+display : y2;
+display : y3;
+display : y4;
+display : y5;
+
+display : x1;
+display : x2;
+display : x3;
+display : x4;
+display : x5;
+display : 2*x1+4*x2+6*x3+8*x4+10*x5+3*s1+2*s2+3*s3+2*s4+10*y1+8*y2+6*y3+4*y4+2*y5; #fonction objectif à recopier
+\end{verbatim}
+
 \end{appendices}
 
 \end{document}
