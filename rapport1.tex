@@ -226,6 +226,8 @@ Une troisième modélisation nous est proposé. On décompose ici la production 
 Ainsi modélisé, s'il y a une production $x_t>0$, alors $y_t$ sera forcément égal à 1, et le problème sera résolu en un appel au solveur. L'implémentation effectuée en Annexe \ref{pbfinal} nous donne en effet la valeur 188 (admissible) dès la racine de l'arbre.
 
 \chapter{Conclusion}
+En conclusion, la modélisation basique du problème ULS, est traité en des temps peu raisonnables par l'algorithme de Branch\&bound et calculé par un solveur comme le $GLPK$. Mais lorsque l'on complète le modèle avec des contraintes plus fines comme la contrainte de coupe ($3.1$), on obtient une solution dans des temps tres raisonnables.
+Et si l'on arrive à identifier des cas particuliers comme celui de Wagner-Whitin la résolution devient triviale.
 On voit au travers des essais et améliorations que l'algorithme de branch\&bound est efficace pour résoudre un problème en variables entières uniquement si la modélisation associée est efficace.
 Les choix de parcours de l'arbre nous ne nous amènent pas rapidement à la meilleure solution, on peut donc imaginer qu'il existe des heuristiques/méta-heuristiques plus efficaces pour choisir les branches à explorer.
 On peut par exemple prêter une attention particulière aux coûts duaux ainsi qu'à l'intervalle de stabilité des variables $y_t$.
